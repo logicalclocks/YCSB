@@ -29,6 +29,7 @@ option java_outer_classname = "RonDBGrpcProto";
 message Empty {}
 
 //__________________  PK Read Operation __________________
+
 message FilterProto {
   required string Column = 1;
   required string Value = 2;
@@ -54,10 +55,12 @@ message ColumnValueProto {
 message PKReadResponseProto {
   optional string OperationID = 1;
   optional int32 code = 2;
-  map<string, ColumnValueProto> Data = 3;
+  optional string message = 3;
+  map<string, ColumnValueProto> Data = 4;
 }
 
 //__________________  Batch Operation ________________________
+
 message BatchRequestProto {
   repeated PKReadRequestProto operations = 1;
 }
